@@ -29,11 +29,11 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 //Logo
-                Center(
+                const Center(
                   child: Icon(
                     Icons.chat,
                     size: 100,
@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 30,
                 ),
                 //welcome text
-                Text(
+                const Text(
                   'Welcome to Chat',
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
@@ -77,12 +77,12 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Not a member?"),
+                    const Text("Not a member?"),
                     TextButton(
                         onPressed: () {
                           print('hello');
                         },
-                        child: Text("Register"))
+                        child: const Text("Register"))
                   ],
                 )
               ],

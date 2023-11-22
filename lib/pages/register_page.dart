@@ -2,22 +2,23 @@ import 'package:chat/components/my_button.dart';
 import 'package:chat/components/my_text_field.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final void Function()? onTap;
-  const LoginPage({super.key, required this.onTap});
+  const RegisterPage({super.key, required this.onTap});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-void signIn() {
-  print('hello');
-}
-
-class _LoginPageState extends State<LoginPage> {
-//text controllers
+class _RegisterPageState extends State<RegisterPage> {
+  //text controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+
+  void signUp() {
+    widget.onTap!();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 //welcome text
                 const Text(
-                  'Welcome to Chat',
+                  'Register to Chat',
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
@@ -70,25 +71,35 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(
                   height: 30,
                 ),
-                //sign in
+
+                //confirm password textfield
+                MyTextField(
+                  controller: confirmPasswordController,
+                  hintText: "Confirm Password",
+                  obscureText: true,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                //sign up
                 MyButton(
                     onTap: () {
-                      signIn();
+                      signUp();
                     },
-                    text: "Sign In")
+                    text: "Sign Up")
 
                 //not member register
                 ,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Not a member?"),
+                    const Text("Already a member?"),
                     TextButton(
                         onPressed: () {
                           print('hello');
                           widget.onTap!();
                         },
-                        child: const Text("Register"))
+                        child: const Text("Login now"))
                   ],
                 )
               ],

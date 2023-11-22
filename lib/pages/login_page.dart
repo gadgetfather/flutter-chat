@@ -27,6 +27,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
                   height: 30,
@@ -44,9 +45,11 @@ class _LoginPageState extends State<LoginPage> {
                 //welcome text
                 Text(
                   'Welcome to Chat',
-                  style: TextStyle(fontSize: 30),
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
-
+                const SizedBox(
+                  height: 30,
+                ),
                 //Email textfield
                 MyTextField(controller: emailController, hintText: "Email"),
                 const SizedBox(
@@ -70,6 +73,18 @@ class _LoginPageState extends State<LoginPage> {
                     text: "Sign In")
 
                 //not member register
+                ,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Not a member?"),
+                    TextButton(
+                        onPressed: () {
+                          print('hello');
+                        },
+                        child: Text("Register"))
+                  ],
+                )
               ],
             ),
           ),
